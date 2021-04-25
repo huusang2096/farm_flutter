@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "farmgate-ea81b",
+  "private_key_id": "c16678469fdede418a3c6a573cc6a0166a3ee382",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC+vzWrmTIIbDgH\n6AN+VL0rm41Qy7K1/O/t3QCw+HFrCpaS8AZ51/5saAhdgLubV5/VCJwQ7/kl6jKE\n8zdXomZTIm1rr5MuC0yiiLNA/jo0AUtC4Fu6XLyol0xLxVX4NW1ePOamdFouH2JH\nwoK7kpv9xjxgecxStTzuIKc0Ac1DQ5F8OSiECwbAlKC2gVKNLXM3RdnySTGoof/g\nHwm+qve1THidvKj9Liujz9aegHMqvurJ06OYG3rsMkXRw4lipQv2zp/gl3vXeEjq\nPXFMObRA73T8dlw0GoT9CpjU7A9b1267lICc3V2SGAjZ88GuYZu4nGxC1OfI02c9\nrTCn2B/FAgMBAAECggEAC48jzfvRI+CG/repKokxE4jwJeLKOCwVUBlR9ud/XAi+\nujXQdqbHtMMTKrNn6xCCz5KffolEVG9eU183zdg6EjSmY922chZeNQVKs5gUZ91i\nNbHJ7T+8cQ0GIxtYy9tU/t567cBkTKI7PvUDHiHS0SynsQMAhkyUXivdZhHr4fUF\n/iAploKbjISGhKclAb/YLdSRQN6rhqQLqDl0rmNeM3MB0565Jkm8MHf1OBbs3tMs\nIZkfeHzkCWAA0toJzs7c8iU4PW+N6TLRLyy5uT5AUe2lBKZcFOmomsf5lWdmflvT\nlybmJJgPawp0mJMb9Nx7aMG+fGskk1tl8svvQBx+OwKBgQDdQx6juv/LYXJlHHqX\nhu1CvtS5reQQ6i4LhqWhiAdReI+x2+Hj34pB2xkG0tLfy7txJSEOCN3Cibo4mWgt\nwHi4eCUp+ASb6n2VDBPWthrRvpAxI+HOP+noUyPFgAwzttDd7uPF+fFYB8PqZjYo\nMlG7F1HplnC/ZLs5GbbxT+ybhwKBgQDcsaHm0RazrUDpwlXHkY6LUIaV6M2nxB7p\n24N4BBmapXhmSSbABdR8F+zRBGzUM3f0tf0P/ib27NxF46JRO7RBH5LoP8zl3zPa\ncn02zjOrOU9Qlwh4NqoFF3Hv9ZKLssyeuWKunX6JauFv5Pt6e0rfW5GHZpLToIbW\nTVowQct1UwKBgF9+gXHO2mlvxEyJTwuo6yucavk8aKs4Nuk4krG1oNrzuqjbqpGL\nwAMOSa3dPa/jISIDEVIaV4OHp7yX0RO19yQ+jmOfrHWSbeLvFHzdmZOeuGLNBr7a\nbNydTVoHGr0TEPBIEzw11IjWySKYPJV6qjWiKfMzv7OLCRbq1z8s7IRvAoGAMHz6\npFrmEP4M2A8xh5JsbiF4IHGw1Z5aaGkpXnIQKhEW/eoukFv3jng3OMkvHARe464k\ndqIRb4kk8FoOLKjgdrp4LXzvCMZcfy9OYX82jPUffwZf/wGLo2i+SMl8tCLJoEn8\n636A8bJA67O0qPlzvtVAiS45LjQDzAvct+OMzy8CgYBPTRnTDJin08bvZlmfZ4FC\n8997HmPGgHwYHHUUzGfVEAntujNfy0GMazQ2EX1G1fBMsa1kqGNdhjEaiHrdfcjg\nRuUTVZK2UA7lGdrnG+rHj0+gTNeXWzBbpHeJwEc2CnvFHxysK818PrsoK8UslSvE\nS/vnYTkc/Atz4zKQdHjLHQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebaseappdistribution@farmgate-ea81b.iam.gserviceaccount.com",
+  "client_id": "108471045030603785280",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebaseappdistribution%40farmgate-ea81b.iam.gserviceaccount.com"
+}

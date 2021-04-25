@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>342852187294-7c699u52rbpetl7u9s1g4c1b1vh1kj7v.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.342852187294-7c699u52rbpetl7u9s1g4c1b1vh1kj7v</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>342852187294-b1mtdomhev88danl64u7oivi3umkh4os.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDd6xpfUOs4TfhK0mQqWeGCwQdzn1IjQP0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>342852187294</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.tinnghiacommodities.farmgateapp</string>
+	<key>PROJECT_ID</key>
+	<string>farmgate-ea81b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>farmgate-ea81b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:342852187294:ios:489519b1c9db13c1faf78f</string>
+	<key>DATABASE_URL</key>
+	<string>https://farmgate-ea81b.firebaseio.com</string>
+</dict>
+</plist>

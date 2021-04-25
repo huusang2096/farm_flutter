@@ -1,0 +1,2 @@
+Device ID	Device Name
+bf11179daac2913654356e1dec5d79d21e73df4b	iPhone6S
