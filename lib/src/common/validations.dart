@@ -4,8 +4,8 @@ import 'package:simplest/simplest.dart';
 class Validations {
   String validateName(String value) {
     if (value.isEmpty) return 'name_is_required'.tr;
-    final nameExp = RegExp(r'^[A-za-z ]+$');
-    if (!nameExp.hasMatch(value)) {
+    final nameExp = RegExp(r'^-?[0-9]+$_\-=@,\.;]+');
+    if (nameExp.hasMatch(value)) {
       return 'please_enter_only_alphabetical_characters'.tr;
     }
 

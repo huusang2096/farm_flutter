@@ -47,7 +47,7 @@ class Application extends StatelessWidget {
             color: Colors.white, iconTheme: IconThemeData(color: Colors.black)),
         primaryColor: primaryColor,
         primaryTextTheme:
-            GoogleFonts.arimoTextTheme(Theme.of(context).textTheme),
-        textTheme: GoogleFonts.arimoTextTheme(Theme.of(context).textTheme));
+            GoogleFonts.robotoTextTheme(Theme.of(context).textTheme),
+        textTheme: GoogleFonts.robotoTextTheme(Theme.of(context).textTheme));
   }
 }

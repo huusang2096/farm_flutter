@@ -161,7 +161,8 @@ class DataRepository implements RestClient {
       String language,
       String lat,
       String long,
-      File picture}) {
+      File picture,
+      String source}) {
     return _client.postNews(
         name: name,
         description: description,
@@ -170,7 +171,8 @@ class DataRepository implements RestClient {
         language: language,
         lat: lat,
         long: long,
-        picture: picture);
+        picture: picture,
+        source: source);
   }
 
   @override
@@ -241,11 +243,6 @@ class DataRepository implements RestClient {
   @override
   Future<TreeTypeResponse> getTreeTypes() {
     return _client.getTreeTypes();
-  }
-
-  @override
-  Future<BaseResponse> addTreeGarden(int gardenId, int id) {
-    return _client.addTreeGarden(gardenId, id);
   }
 
   @override
@@ -510,5 +507,21 @@ class DataRepository implements RestClient {
   Future<HistoryTransactionDetalResponse> getHistoryTransactionDetail(
       String id) {
     return _client.getHistoryTransactionDetail(id);
+  }
+
+  @override
+  Future<BaseResponse> addTreeGarden(
+      int gardenId,
+      int id,
+      String seeding,
+      String amount,
+      int year,
+      String plantingMethod,
+      String area,
+      String statusGarden,
+      String owner) {
+    // TODO: implement addTreeGarden
+    return _client.addTreeGarden(gardenId, id, seeding, amount, year,
+        plantingMethod, area, statusGarden, owner);
   }
 }

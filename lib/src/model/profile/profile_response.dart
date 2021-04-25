@@ -51,7 +51,8 @@ class Profile {
       this.address,
       this.addressFormat,
       this.permission,
-      this.status});
+      this.status,
+      this.reasonCancel});
 
   int id;
   String firstName;
@@ -69,6 +70,7 @@ class Profile {
   String addressFormat;
   int permission;
   String status;
+  String reasonCancel;
   Profile copyWith(
           {int id,
           String firstName,
@@ -85,7 +87,8 @@ class Profile {
           String address,
           String addressFormat,
           int permission,
-          String status}) =>
+          String status,
+          String reasonCancel}) =>
       Profile(
           id: id ?? this.id,
           firstName: firstName ?? this.firstName,
@@ -102,7 +105,8 @@ class Profile {
           address: address ?? this.address,
           addressFormat: addressFormat ?? this.addressFormat,
           permission: permission ?? this.permission,
-          status: status ?? this.status);
+          status: status ?? this.status,
+          reasonCancel: reasonCancel ?? this.reasonCancel);
   factory Profile.fromRawJson(String str) => Profile.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
@@ -125,6 +129,8 @@ class Profile {
             json["address_format"] == null ? "" : json["address_format"],
         permission: json["permission"] == null ? null : json["permission"],
         status: json["status"] == null ? null : json["status"],
+        reasonCancel:
+            json["reason_cancel"] == null ? null : json["reason_cancel"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -146,6 +152,7 @@ class Profile {
         "address_format": addressFormat == null ? "" : addressFormat,
         "permission": permission == null ? null : permission,
         "status": status == null ? null : status,
+        "reason_cancel": reasonCancel == null ? null : reasonCancel,
       };
 }
 

@@ -107,7 +107,8 @@ abstract class RestClient {
       @Part(name: 'language') String language,
       @Part(name: 'latitude') String lat,
       @Part(name: 'longitude') String long,
-      @Part(name: 'image_input') File picture});
+      @Part(name: 'image_input') File picture,
+      @Part(name: 'source_articles') String source});
 
   @POST('api/v1/update-avatar')
   Future<AvatarResponse> uploadAvatar({@Part(name: 'avatar') File picture});
@@ -161,6 +162,13 @@ abstract class RestClient {
   Future<BaseResponse> addTreeGarden(
     @Path('garden_id') int gardenId,
     @Part(name: 'tree_id') int id,
+    @Part(name: 'seedling') String seeding,
+    @Part(name: 'amount') String amount,
+    @Part(name: 'year') int year,
+    @Part(name: 'planting_method') String plantingMethod,
+    @Part(name: 'area') String area,
+    @Part(name: 'status_garden') String statusGarden,
+    @Part(name: 'owner') String owner,
   );
 
   @POST('api/v1/add-garden')

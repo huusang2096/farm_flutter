@@ -3,6 +3,7 @@ import 'package:farmgate/src/common/style.dart';
 import 'package:farmgate/src/common/validations.dart';
 import 'package:farmgate/src/model/graden/tree_list.dart';
 import 'package:farmgate/src/screens/graden/tree/bloc/tree_cubit.dart';
+import 'package:farmgate/src/screens/graden/tree/bloc/tree_state.dart';
 import 'package:farmgate/src/widgets/rouned_flat_button.dart';
 import 'package:fdottedline/fdottedline.dart';
 import 'package:flutter/cupertino.dart';
@@ -15,8 +16,17 @@ const Color _colorGrey = Colors.grey;
 class TreeItemFormFieldWidget extends StatefulWidget {
   final TreeList treeList;
   final int gardenId;
-
-  TreeItemFormFieldWidget({this.treeList, this.gardenId});
+  final Function(
+      int gardenId,
+      int treeId,
+      String amount,
+      String seeding,
+      String plantMethod,
+      int year,
+      String area,
+      String owner,
+      String statusGarden) onSave;
+  TreeItemFormFieldWidget({this.treeList, this.gardenId, this.onSave});
 
   @override
   _TreeItemFormFieldWidgetState createState() =>
@@ -244,11 +254,16 @@ class _TreeItemFormFieldWidgetState extends State<TreeItemFormFieldWidget> {
           height: 60,
           child: Center(
             child: RounedFlatButton(
-              onPress: () {
-                // context
-                //     .read<TreeCubit>()
-                //     .addTreeGarden(widget.gardenId, widget.treeList.id);
-              },
+              onPress: () => widget.onSave(
+                  widget.gardenId,
+                  widget.treeList.id,
+                  _treeQuantityContr.text ?? '',
+                  _treeSeedContr.text ?? '',
+                  _treeMethodContr.text ?? '',
+                  _dateFormat?.parse(_dateContr.text)?.year ?? _timePlant.year,
+                  _acreageContr.text ?? '',
+                  _ownerGardenContr.text ?? '',
+                  _statusGardenContr.text ?? ''),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -629,5 +644,11 @@ class _TreeItemFormFieldWidgetState extends State<TreeItemFormFieldWidget> {
     _statusGardenContr.dispose();
     _ownerGardenContr.dispose();
     super.dispose();
+  }
+
+  @override
+  Widget builder(BuildContext context, TreeState state) {
+    // TODO: implement builder
+    throw UnimplementedError();
   }
 }

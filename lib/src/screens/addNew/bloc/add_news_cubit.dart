@@ -34,7 +34,8 @@ class AddNewsCubit extends BaseCubit<AddNewsState> {
     emit(ImageChange(state.data.copyWith(imageSelects: changeImageSelects)));
   }
 
-  postData(String name, String description, String content) async {
+  postData(
+      String name, String description, String content, String srcPost) async {
     if (name.isNullOrBlank) {
       snackbarService.showSnackbar(message: 'please_add_title_post'.tr);
       return;
@@ -68,7 +69,8 @@ class AddNewsCubit extends BaseCubit<AddNewsState> {
           language: language,
           lat: state.data.myPlace.lat.toString(),
           long: state.data.myPlace.lng.toString(),
-          picture: state.data.imageSelects[0].url);
+          picture: state.data.imageSelects[0].url,
+          source: srcPost ?? '');
       if (place != null) {
         emit(ImageChange(state.data.copyWith(isLoading: false)));
         final dialogResponse = await dialogService.showDialog(

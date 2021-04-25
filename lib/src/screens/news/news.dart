@@ -111,42 +111,39 @@ class _NewsScreenState extends CubitState<NewsScreen, NewsCubit, NewsState>
                   ],
                 ),
                 SliverPersistentHeader(
-                  delegate: _SliverAppBarDelegate(
-                    categorys.length != 0
-                        ? Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Divider(height: 1, color: Colors.grey),
-                              Row(
-                                children: [
-                                  IconButton(
-                                      icon: Icon(
-                                        Icons.menu,
-                                        color: Colors.grey,
-                                        size: 25.0,
-                                      ),
-                                      onPressed: () {
-                                        _scaffoldKey.currentState.openDrawer();
-                                      }),
-                                  Expanded(
-                                    child: TabBar(
-                                        indicatorColor: Colors.transparent,
-                                        controller: _controller,
-                                        labelColor: tabSelect,
-                                        unselectedLabelColor: Colors.grey,
-                                        labelStyle: title,
-                                        isScrollable: true,
-                                        tabs: tabWidgets),
-                                  ),
-                                ],
+                  delegate: _SliverAppBarDelegate(Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Divider(height: 1, color: Colors.grey),
+                      Row(
+                        children: [
+                          IconButton(
+                              icon: Icon(
+                                Icons.menu,
+                                color: Colors.grey,
+                                size: 25.0,
                               ),
-                            ],
-                          )
-                        : Container(
-                            width: double.infinity, child: TabShimmer()),
-                  ),
+                              onPressed: () {
+                                _scaffoldKey.currentState.openDrawer();
+                              }),
+                          categorys.length != 0
+                              ? Expanded(
+                                  child: TabBar(
+                                      indicatorColor: Colors.transparent,
+                                      controller: _controller,
+                                      labelColor: tabSelect,
+                                      unselectedLabelColor: Colors.grey,
+                                      labelStyle: title,
+                                      isScrollable: true,
+                                      tabs: tabWidgets),
+                                )
+                              : Expanded(child: TabShimmer())
+                        ],
+                      ),
+                    ],
+                  )),
                   pinned: true,
-                ),
+                )
               ];
             },
             body: categorys.length != 0

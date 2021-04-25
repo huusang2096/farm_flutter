@@ -1,4 +1,5 @@
 import 'package:farmgate/src/common/config.dart';
+import 'package:farmgate/src/model/graden/graden_detail_response.dart';
 import 'package:farmgate/src/model/graden/tree_list.dart';
 import 'package:farmgate/src/screens/graden/graden_detail/widget/tree_item_bottom_sheet_widget.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +7,7 @@ import 'package:simplest/simplest.dart';
 
 // ignore: must_be_immutable
 class TreeItemWidget extends StatelessWidget {
-  final TreeList tree;
+  final TreeListGarden tree;
   final double marginLeft;
   const TreeItemWidget({Key key, this.tree, this.marginLeft}) : super(key: key);
 
@@ -37,7 +38,8 @@ class TreeItemWidget extends StatelessWidget {
                       height: 120,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: CachedNetworkImageProvider(tree.image ?? ""),
+                            image: CachedNetworkImageProvider(
+                                tree.tree?.image ?? ""),
                             fit: BoxFit.cover),
                         borderRadius: BorderRadius.circular(12.0),
                       ),
@@ -55,7 +57,7 @@ class TreeItemWidget extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            '${tree?.name ?? ''}',
+                            '${tree?.tree?.name ?? ''}',
                             maxLines: 2,
                             textAlign: TextAlign.start,
                             style: titleNew.copyWith(fontSize: 14.0),
@@ -80,7 +82,7 @@ class TreeItemWidget extends StatelessWidget {
     );
   }
 
-  _showModalBottomSheet(TreeList tree, BuildContext context) {
+  _showModalBottomSheet(TreeListGarden tree, BuildContext context) {
     showModalBottomSheet(
         elevation: 10,
         context: context,

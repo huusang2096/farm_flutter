@@ -1,4 +1,5 @@
 import 'package:farmgate/src/common/config.dart';
+import 'package:farmgate/src/model/graden/graden_detail_response.dart';
 import 'package:farmgate/src/model/graden/tree_list.dart';
 import 'package:farmgate/src/screens/graden/tree/bloc/tree_cubit.dart';
 import 'package:farmgate/src/screens/graden/tree/bloc/tree_state.dart';
@@ -65,7 +66,8 @@ class TreeShowAllAndPickTree extends CubitWidget<TreeCubit, TreeState> {
                             crossAxisSpacing: 4,
                             childAspectRatio: 0.95),
                         itemBuilder: (context, index) {
-                          TreeList tree = state.data.listTree.elementAt(index);
+                          TreeListGarden tree =
+                              state.data.listTree.elementAt(index);
                           return GestureDetector(
                             onTap: () {
                               navigator.pop({'tree': tree});
@@ -92,7 +94,7 @@ class TreeShowAllAndPickTree extends CubitWidget<TreeCubit, TreeState> {
                                             image: DecorationImage(
                                                 image:
                                                     CachedNetworkImageProvider(
-                                                        tree.image ?? ""),
+                                                        tree.tree.image ?? ""),
                                                 fit: BoxFit.cover),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
@@ -109,7 +111,7 @@ class TreeShowAllAndPickTree extends CubitWidget<TreeCubit, TreeState> {
                                       child: Container(
                                         height: 30,
                                         child: Text(
-                                          '${tree?.name ?? ''}',
+                                          '${tree?.tree.name ?? ''}',
                                           maxLines: 2,
                                           textAlign: TextAlign.start,
                                           style:

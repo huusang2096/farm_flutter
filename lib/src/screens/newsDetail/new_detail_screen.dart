@@ -164,7 +164,8 @@ class NewDetailScreen extends CubitWidget<DetailCubit, DetailState> {
                   information: state.data.detail.data.content),
           state.data.detail == null
               ? SizedBox.shrink()
-              : buildResource(resource: state.data.detail.data.resource),
+              : buildResource(
+                  resource: state.data.detail.data.resource, author: ''),
           SizedBox(height: 8),
           Container(height: 3, color: Colors.grey[300]),
           Padding(
@@ -282,23 +283,26 @@ class NewDetailScreen extends CubitWidget<DetailCubit, DetailState> {
     }
   }
 
-  Widget buildResource({String resource}) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('resource'.tr, style: textInput),
-          GestureDetector(
-            onTap: () {
-              _launchURL(resource);
-            },
-            child: Text(resource,
-                maxLines: 2, style: textInput.copyWith(color: Colors.blue)),
-          )
-        ],
-      ),
-    );
+  Widget buildResource({String resource, String author}) {
+    return resource == null
+        ? SizedBox.shrink()
+        : Container(
+            margin: EdgeInsets.symmetric(horizontal: 10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('resource'.tr, style: textInput),
+                GestureDetector(
+                  onTap: () {
+                    _launchURL(resource);
+                  },
+                  child: Text(resource,
+                      maxLines: 2,
+                      style: textInput.copyWith(color: Colors.blue)),
+                )
+              ],
+            ),
+          );
   }
 
   Widget buildTitle({String titleSale, participationTime, String category}) {

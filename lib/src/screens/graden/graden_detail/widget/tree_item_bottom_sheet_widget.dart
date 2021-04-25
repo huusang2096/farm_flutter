@@ -1,5 +1,6 @@
 import 'package:farmgate/src/common/config.dart';
 import 'package:farmgate/src/common/validations.dart';
+import 'package:farmgate/src/model/graden/graden_detail_response.dart';
 import 'package:farmgate/src/model/graden/tree_list.dart';
 import 'package:farmgate/src/widgets/rouned_flat_button.dart';
 import 'package:fdottedline/fdottedline.dart';
@@ -11,7 +12,7 @@ const Color _colorRedAccent = Colors.redAccent;
 const Color _colorGrey = Colors.grey;
 
 class TreeItemShowModalBottomSheetWidget extends StatelessWidget {
-  final TreeList treeList;
+  final TreeListGarden treeList;
   TreeItemShowModalBottomSheetWidget({this.treeList});
 
   DateTime _timePlant = DateTime.now();
@@ -84,7 +85,7 @@ class TreeItemShowModalBottomSheetWidget extends StatelessWidget {
                       ),
                     ),
                     child: CachedNetworkImage(
-                      imageUrl: treeList.image,
+                      imageUrl: treeList?.tree?.image ?? '',
                       memCacheWidth: 250,
                       imageBuilder: (ctx, imgProvider) => Container(
                         decoration: BoxDecoration(
@@ -101,7 +102,7 @@ class TreeItemShowModalBottomSheetWidget extends StatelessWidget {
                     width: 10.0,
                   ),
                   Text(
-                    treeList.name ?? '',
+                    treeList.tree.name ?? '',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style:
@@ -144,39 +145,39 @@ class TreeItemShowModalBottomSheetWidget extends StatelessWidget {
       children: [
         _buildRowItemTree(
             title: 'tree_type', //Giống cây
-            value: treeList.treeTypes.name ?? '',
+            value: treeList.tree.treeTypes.name ?? '',
             index: '0'),
         _buildRowItemTree(
             title: 'tree_seed', //Loại cây
             // value: treeList.treeSeeds.name ?? '',
-            value: '',
+            value: treeList?.seedling ?? '',
             index: '1'),
         _buildRowItemTree(
             title: 'tree_quantity', //số lượng cây trồng
-            value: '',
+            value: treeList.amount ?? '',
             index: '2'),
         _buildRowItemTree(
             title: 'tree_year', //Năm cây trồng
-            value: '',
+            value: treeList.year ?? '',
             iconSuffix: Icons.date_range,
             index: '3'),
         _buildRowItemTree(
             title: 'tree_method', //phương thức trồng
-            value: '',
+            value: treeList.plantingMethod ?? '',
             index: '4'),
         _buildRowItemTree(
             title: 'acreage', //diện tích
-            value: '',
+            value: treeList.area ?? '',
             index: '5',
             textSuffix: 'km2'),
         _buildRowItemTree(
           title: 'status_garden', //Hiện trạng vườn
-          value: '',
+          value: treeList.statusGarden ?? '',
           index: '6',
         ),
         _buildRowItemTree(
           title: 'owner_garden', //Chủ sở hữu
-          value: '',
+          value: treeList.owner ?? '',
           index: '7',
         ),
       ],

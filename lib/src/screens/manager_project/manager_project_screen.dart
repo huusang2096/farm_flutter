@@ -120,9 +120,9 @@ class ManagerProjectScreen
                             DottedLine(height: 1, color: Colors.grey),
                             SizedBox(height: 10),
                             GestureDetector(
-                              onTap: item.status == 'not_eligible_for_review'
+                              onTap: item.status == 'draft'
                                   ? () {
-                                      _showModalBottomSheet(context);
+                                      _showModalBottomSheet(context, item);
                                     }
                                   : () {},
                               child: Center(
@@ -130,9 +130,8 @@ class ManagerProjectScreen
                                   //update approval reason
                                   item.status == "pending"
                                       ? 'pending'.tr
-                                      : item.status ==
-                                              'not_eligible_for_review'.tr
-                                          ? 'not_eligible_for_review'.tr
+                                      : item.status == 'draft'.tr
+                                          ? 'draft'.tr
                                           : 'published'.tr,
                                   textAlign: TextAlign.center,
                                   //if type = published, color is activeGreen and others is red
@@ -270,7 +269,7 @@ class ManagerProjectScreen
     );
   }
 
-  void _showModalBottomSheet(BuildContext context) {
+  void _showModalBottomSheet(BuildContext context, MyProject project) {
     showModalBottomSheet(
         elevation: 10,
         context: context,
@@ -343,11 +342,7 @@ class ManagerProjectScreen
                         padding: EdgeInsets.only(left: 16),
                         child: Column(
                           children: [
-                            Text('reason 1: ...',
-                                style: body1.copyWith(color: Colors.black)),
-                            Text('reason 2: ...',
-                                style: body1.copyWith(color: Colors.black)),
-                            Text('reason 3: ...',
+                            Text('${project.reasonCancel}',
                                 style: body1.copyWith(color: Colors.black)),
                           ],
                         ),

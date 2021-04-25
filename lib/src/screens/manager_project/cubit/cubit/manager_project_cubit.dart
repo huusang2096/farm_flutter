@@ -23,9 +23,9 @@ class ManagerProjectCubit extends BaseCubit<ManagerProjectState> {
         data = event['onResume'];
       } else if (event.containsKey('onSelectLocalNotification')) {
         data = event['onSelectLocalNotification'];
-      } else if (event['onMessage']) {
+      } else if (event['onMessage'] == 'true') {
         data = event['onMessage'];
-      } else if (event['onLaunch']) {
+      } else if (event['onLaunch'] ?? false) {
         data = event['onLaunch'];
       }
 

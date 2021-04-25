@@ -389,5 +389,7 @@
   "reason_not_approval":"Reason not approval",
   "you_are" : "Now you are %s",
   "please_select_usertype" : "Please select user type !",
-  "report" :"Report"
+  "report" :"Report",
+  "source_post": "Source post",
+  "draft": "Not eligible for review"
 }

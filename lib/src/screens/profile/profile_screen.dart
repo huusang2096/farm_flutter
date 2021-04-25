@@ -82,7 +82,7 @@ class ProfileScreen extends CubitWidget<ProfileCubit, ProfileState> {
                                                     .getProfile()
                                               }),
                                       onPressReasonNotApproval: () {
-                                        _showModalBottomSheet(context);
+                                        _showModalBottomSheet(context, state);
                                       },
                                     ),
                                     SizedBox(
@@ -168,7 +168,7 @@ class ProfileScreen extends CubitWidget<ProfileCubit, ProfileState> {
     );
   }
 
-  void _showModalBottomSheet(BuildContext context) {
+  void _showModalBottomSheet(BuildContext context, ProfileState stateProfile) {
     showModalBottomSheet(
         elevation: 10,
         context: context,
@@ -241,12 +241,13 @@ class ProfileScreen extends CubitWidget<ProfileCubit, ProfileState> {
                         padding: EdgeInsets.only(left: 16),
                         child: Column(
                           children: [
-                            Text('reason 1: ...',
+                            Text(
+                                '${stateProfile.profileResponse?.data?.reasonCancel ?? ''}',
                                 style: body1.copyWith(color: Colors.black)),
-                            Text('reason 2: ...',
-                                style: body1.copyWith(color: Colors.black)),
-                            Text('reason 3: ...',
-                                style: body1.copyWith(color: Colors.black)),
+//                            Text('reason 2: ...',
+//                                style: body1.copyWith(color: Colors.black)),
+//                            Text('reason 3: ...',
+//                                style: body1.copyWith(color: Colors.black)),
                           ],
                         ),
                       ),

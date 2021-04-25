@@ -88,9 +88,8 @@ class Detail {
         videoLink: json["video_link"],
         createdAt: json["created_at"] == null ? null : json["created_at"],
         updatedAt: json["updated_at"] == null ? null : json["updated_at"],
-        resource: json["resource"] == null
-            ? "https://dev.farmgate.di4l.vn/tin-tuc/diem-tin-the-thao-sang-26-2-messi-va-ronaldo-deu-vang-mat-trong-top-10-dat-gia-nhat-the-gioi"
-            : json["resource"],
+        resource:
+            json["source_articles"] == null ? null : json["source_articles"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -108,8 +107,6 @@ class Detail {
         "video_link": videoLink,
         "created_at": createdAt == null ? null : createdAt,
         "updated_at": updatedAt == null ? null : updatedAt,
-        "resource": resource == null
-            ? "https://dev.farmgate.di4l.vn/tin-tuc/diem-tin-the-thao-sang-26-2-messi-va-ronaldo-deu-vang-mat-trong-top-10-dat-gia-nhat-the-gioi"
-            : resource,
+        "source_articles": resource == null ? null : resource,
       };
 }

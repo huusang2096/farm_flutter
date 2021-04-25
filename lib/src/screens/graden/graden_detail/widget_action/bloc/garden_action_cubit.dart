@@ -49,6 +49,42 @@ class GardenActionCubit extends BaseCubit<GardenActionState> {
       actionRequest.name = state.data.action.name;
       actionRequest.image = state.data.action.image;
       actionRequest.actions = state.data.listsActionModel;
+//      log('action request: ${actionRequest.toRawJson()}');
+      BaseResponse response = await dataRepository.addActionGarden(
+          state.data.gardenId, actionRequest);
+      if (response != null) {
+        emit(ShowUI(state.data.copyWith(isShow: false)));
+        snackbarService.showSnackbar(
+            message: 'add_action'.tr, duration: Duration(seconds: 2));
+        new Timer(new Duration(seconds: 3), () async {
+          navigator.pop();
+        });
+      } else {
+        state.data.listsActionModel.add(new ActionModel(
+            unitName: 'complete_des'.tr,
+            inputType: "",
+            inputData: "complete_des"));
+        emit(ShowUI(state.data.copyWith(isShow: false)));
+        snackbarService.showSnackbar(message: 'add_action'.tr);
+      }
+    } catch (e) {
+      emit(ShowUI(state.data.copyWith(isShow: false)));
+      snackbarService.showSnackbar(
+          message: 'add_action'.tr, duration: Duration(seconds: 2));
+    }
+  }
+
+  void editAction(int id) async {
+    try {
+      // Check data before upload.
+      emit(ShowUI(state.data.copyWith(isShow: true)));
+      state.data.listsActionModel
+          .removeAt(state.data.listsActionModel.length - 1);
+      ActionRequest actionRequest = new ActionRequest();
+      actionRequest.id = state.data.action.id;
+      actionRequest.name = state.data.action.name;
+      actionRequest.image = state.data.action.image;
+      actionRequest.actions = state.data.listsActionModel;
       BaseResponse response = await dataRepository.addActionGarden(
           state.data.gardenId, actionRequest);
       if (response != null) {

@@ -64,10 +64,20 @@ class TreeCubit extends BaseCubit<TreeState> {
     }
   }
 
-  void addTreeGarden(int id, int treeID) async {
+  void addTreeGarden(
+      {int id,
+      int treeID,
+      String seeding,
+      String amount,
+      int year,
+      String plantingMethod,
+      String area,
+      String statusGarden,
+      String owner}) async {
     try {
       emit(Loading(state.data.copyWith(isLoading: true, idSelect: treeID)));
-      BaseResponse response = await dataRepository.addTreeGarden(id, treeID);
+      BaseResponse response = await dataRepository.addTreeGarden(id, treeID,
+          seeding, amount, year, plantingMethod, area, statusGarden, owner);
       if (response.error) {
         snackbarService.showSnackbar(message: response.message);
       } else {

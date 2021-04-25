@@ -16,6 +16,8 @@ import 'bloc/add_news_state.dart';
 class AddNewsScreen extends CubitWidget<AddNewsCubit, AddNewsState> {
   final TextEditingController _titleController = new TextEditingController();
   final TextEditingController _descController = new TextEditingController();
+  final TextEditingController _srcController = new TextEditingController();
+
   final _appPref = locator<AppPref>();
 
   static provider() {
@@ -136,7 +138,8 @@ class AddNewsScreen extends CubitWidget<AddNewsCubit, AddNewsState> {
                             context.read<AddNewsCubit>().postData(
                                 _titleController.text.toString(),
                                 _descController.text.toString(),
-                                _descController.text.toString());
+                                _descController.text.toString(),
+                                _srcController.text.toString());
                           }),
                     )
                   : SizedBox.shrink()
@@ -253,7 +256,46 @@ class AddNewsScreen extends CubitWidget<AddNewsCubit, AddNewsState> {
                             ImageReviewWidget(),
                           ],
                         ),
-                      )
+                      ),
+                      SizedBox(height: 20),
+                      Padding(
+                          padding: const EdgeInsets.only(
+                              left: 16, right: 16, bottom: 10),
+                          child: Text('source_post'.tr)),
+                      Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          child: TextFormField(
+                              textCapitalization: TextCapitalization.sentences,
+                              maxLines: 1,
+                              controller: _srcController,
+                              keyboardType: TextInputType.text,
+                              decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
+                                contentPadding: EdgeInsets.only(
+                                    top: 20, left: 10, right: 10),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: BorderSide(
+                                        width: 0.0, color: Colors.transparent)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: BorderSide(
+                                        width: 0.0, color: Colors.transparent)),
+                                errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: BorderSide(
+                                        width: 0.5, color: Colors.red)),
+                                focusedErrorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: BorderSide(
+                                        width: 0.5, color: Colors.red)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                    borderSide: BorderSide(
+                                        width: 1.6, color: appIconColor)),
+                                hintText: 'https://example.vn/post-news',
+                              ))),
                     ],
                   )),
                 ))),

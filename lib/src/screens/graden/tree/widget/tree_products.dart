@@ -109,6 +109,8 @@ class TreeWidget extends StatelessWidget {
                                   GestureDetector(
                                     onTap: () {
                                       //showmodalbottomsheet formfield
+//                                      _showModalBottomSheet(
+//                                          tree, context, gardenId);
                                       _showModalBottomSheet(
                                           tree, context, gardenId);
                                       // cubit.addTreeGarden(gardenId, tree.id);
@@ -137,21 +139,36 @@ class TreeWidget extends StatelessWidget {
   }
 
   _showModalBottomSheet(TreeList tree, BuildContext context, int gardenId) {
+    final cubit = context.read<TreeCubit>();
     showModalBottomSheet(
         elevation: 10,
         context: context,
         enableDrag: true,
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
-        builder: (BuildContext builder) {
+        builder: (_) {
           return StatefulBuilder(
-            builder: (context, state) {
+            builder: (BuildContext context, state) {
               return AnimatedPadding(
                 padding: MediaQuery.of(context).viewInsets,
                 duration: const Duration(milliseconds: 10),
                 curve: Curves.decelerate,
-                child:
-                    TreeItemFormFieldWidget(treeList: tree, gardenId: gardenId),
+                child: TreeItemFormFieldWidget(
+                  treeList: tree,
+                  gardenId: gardenId,
+                  onSave: (gardenId, treeId, amount, seeding, plantMethod, year,
+                          area, owner, statusGarden) =>
+                      cubit.addTreeGarden(
+                          id: gardenId,
+                          treeID: treeId,
+                          area: area,
+                          amount: amount,
+                          statusGarden: statusGarden,
+                          owner: owner,
+                          year: year,
+                          plantingMethod: plantMethod,
+                          seeding: seeding),
+                ),
               );
             },
           );

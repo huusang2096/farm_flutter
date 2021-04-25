@@ -2,6 +2,7 @@ import 'package:farmgate/routes.dart';
 import 'package:farmgate/src/common/config.dart';
 import 'package:farmgate/src/common/validations.dart';
 import 'package:farmgate/src/model/graden/action.dart';
+import 'package:farmgate/src/model/graden/graden_detail_response.dart';
 import 'package:farmgate/src/model/graden/tree_list.dart';
 import 'package:farmgate/src/model/place_response.dart';
 import 'package:fdottedline/fdottedline.dart';
@@ -534,10 +535,10 @@ class _ActionInputNumberWidgetState extends State<ActionInputNumberWidget>
                   arguments: {'idGarden': widget.idGarden}).then((value) {
                 final mapData = value as Map;
                 if (mapData != null) {
-                  final tree = mapData['tree'] as TreeList;
+                  final tree = mapData['tree'] as TreeListGarden;
 
-                  _controller.text = tree?.name ?? '';
-                  widget.actionModel.inputData = tree?.name ?? '';
+                  _controller.text = tree?.tree?.name ?? '';
+                  widget.actionModel.inputData = tree?.tree?.name ?? '';
                 }
               }),
           suffixIcon: Icons.date_range,

@@ -131,8 +131,8 @@ class ActionHistoryItemWidget extends StatelessWidget {
                   padding: MediaQuery.of(context).viewInsets,
                   duration: const Duration(milliseconds: 10),
                   curve: Curves.decelerate,
-                  child:
-                      EditActionTypeWidget.provider(action: item, gardenId: 1));
+                  child: EditActionTypeWidget.provider(
+                      action: item, gardenId: item.gardenId));
             },
           );
         });

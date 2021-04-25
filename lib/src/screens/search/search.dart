@@ -21,11 +21,11 @@ class SearchWidget extends CubitWidget<SearchCubit, SearchState> {
 
   @override
   void listener(BuildContext context, SearchState state) {
-    if (_searchController.text != state.data.tagSelect.name) {
-      _searchController.text = state.data.tagSelect.name ?? "";
-      _searchController.selection = TextSelection.fromPosition(
-          TextPosition(offset: _searchController.text.length));
-    }
+//    if (_searchController.text != state.data.tagSelect.name) {
+//      _searchController.text = state.data.tagSelect.name ?? "";
+//      _searchController.selection = TextSelection.fromPosition(
+//          TextPosition(offset: _searchController.text.length));
+//    }
 
     super.listener(context, state);
   }
@@ -120,6 +120,11 @@ class SearchWidget extends CubitWidget<SearchCubit, SearchState> {
                     query = ' ';
                   }
                   Tags tag = new Tags(id: 0, name: query, slug: query);
+                  _searchController
+                    ..text
+                    ..selection = TextSelection.collapsed(
+                        offset: _searchController.text.length);
+                  print('Search Text :${query}');
                   context.read<SearchCubit>().getListNewbyTag(tag);
                 });
               },

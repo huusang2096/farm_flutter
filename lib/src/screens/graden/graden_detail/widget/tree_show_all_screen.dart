@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:farmgate/routes.dart';
 import 'package:farmgate/src/common/config.dart';
+import 'package:farmgate/src/model/graden/graden_detail_response.dart';
 import 'package:farmgate/src/model/graden/tree_list.dart';
 import 'package:farmgate/src/screens/graden/tree/bloc/tree_cubit.dart';
 import 'package:farmgate/src/screens/graden/tree/bloc/tree_state.dart';
@@ -11,12 +12,13 @@ import 'package:simplest/simplest.dart';
 import 'package:farmgate/src/screens/graden/graden_detail/widget/tree_item_bottom_sheet_widget.dart';
 
 class TreeShowAllScreen extends CubitWidget<TreeCubit, TreeState> {
-  final List<TreeList> treeList;
+  final List<TreeListGarden> treeList;
   final int gardenId;
 
   TreeShowAllScreen({this.treeList, this.gardenId});
 
-  static provider({List<TreeList> treeList, String heroTag, int gardenId}) {
+  static provider(
+      {List<TreeListGarden> treeList, String heroTag, int gardenId}) {
     return BlocProvider(
       create: (context) => TreeCubit(),
       child: TreeShowAllScreen(
@@ -54,7 +56,7 @@ class TreeShowAllScreen extends CubitWidget<TreeCubit, TreeState> {
                         crossAxisSpacing: 4,
                         childAspectRatio: 0.95),
                     itemBuilder: (context, index) {
-                      TreeList tree = treeList.elementAt(index);
+                      TreeListGarden tree = treeList.elementAt(index);
                       return index == 0
                           ? GestureDetector(
                               onTap: () {
@@ -113,7 +115,8 @@ class TreeShowAllScreen extends CubitWidget<TreeCubit, TreeState> {
                                               image: DecorationImage(
                                                   image:
                                                       CachedNetworkImageProvider(
-                                                          tree.image ?? ""),
+                                                          tree.tree.image ??
+                                                              ""),
                                                   fit: BoxFit.cover),
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
@@ -135,7 +138,7 @@ class TreeShowAllScreen extends CubitWidget<TreeCubit, TreeState> {
                                               children: [
                                                 Expanded(
                                                   child: Text(
-                                                    '${tree?.name ?? ''}',
+                                                    '${tree?.tree.name ?? ''}',
                                                     maxLines: 2,
                                                     textAlign: TextAlign.start,
                                                     style: titleNew.copyWith(
@@ -173,7 +176,7 @@ class TreeShowAllScreen extends CubitWidget<TreeCubit, TreeState> {
     );
   }
 
-  _showModalBottomSheet(TreeList tree, BuildContext context) {
+  _showModalBottomSheet(TreeListGarden tree, BuildContext context) {
     showModalBottomSheet(
         elevation: 10,
         context: context,
@@ -187,7 +190,9 @@ class TreeShowAllScreen extends CubitWidget<TreeCubit, TreeState> {
                 padding: MediaQuery.of(context).viewInsets,
                 duration: const Duration(milliseconds: 10),
                 curve: Curves.decelerate,
-                child: TreeItemShowModalBottomSheetWidget(treeList: tree),
+                child: TreeItemShowModalBottomSheetWidget(
+                  treeList: tree,
+                ),
               );
             },
           );

@@ -392,5 +392,7 @@
   "reason_not_approval":"Lý do chưa xét duyệt",
   "you_are" : "Hiện tại bạn đã là %s",
   "please_select_usertype" : "Vui lòng chọn loại thành viên",
-  "report" :"Thống kê"
+  "report" :"Thống kê",
+  "source_post": "Nguồn bài viết",
+  "draft":"Chưa đủ điều kiện xét duyệt"
 }

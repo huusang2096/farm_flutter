@@ -43,15 +43,13 @@ class CustomTypeProfile extends StatelessWidget {
                   ),
                   SizedBox(height: 5),
                   GestureDetector(
-                    onTap: type == 'not_eligible_for_review'
-                        ? onPressReasonNotApproval
-                        : () {},
+                    onTap: type == 'draft' ? onPressReasonNotApproval : () {},
                     child: Text(
                       //update approval reason
                       type == "pending"
                           ? 'pending'.tr
-                          : type == 'not_eligible_for_review'.tr
-                              ? 'not_eligible_for_review'.tr
+                          : type == 'draft'
+                              ? 'draft'.tr
                               : 'published'.tr,
                       //if type = published, color is activeGreen and others is red
                       style: titleBar.copyWith(

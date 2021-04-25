@@ -48,6 +48,7 @@ class MyProject {
     this.createdAt,
     this.updatedAt,
     this.project,
+    this.reasonCancel,
   });
 
   int id;
@@ -57,6 +58,7 @@ class MyProject {
   String createdAt;
   String updatedAt;
   Project project;
+  String reasonCancel;
 
   factory MyProject.fromRawJson(String str) =>
       MyProject.fromJson(json.decode(str));
@@ -72,6 +74,8 @@ class MyProject {
         updatedAt: json["updated_at"] == null ? null : json["updated_at"],
         project:
             json["project"] == null ? null : Project.fromJson(json["project"]),
+        reasonCancel:
+            json["reason_cancel"] == null ? null : json["reason_cancel"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -82,6 +86,7 @@ class MyProject {
         "created_at": createdAt == null ? null : createdAt,
         "updated_at": updatedAt == null ? null : updatedAt,
         "project": project == null ? null : project.toJson(),
+        "reason_cancel": reasonCancel == null ? null : reasonCancel
       };
 }
 

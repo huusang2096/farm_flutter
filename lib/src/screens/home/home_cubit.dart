@@ -35,14 +35,15 @@ class HomeCubit extends BaseCubit<HomeState> {
 
     // Handle recevied notification data
     _notificationService.dataStream.listen((event) {
+      log(event.toString());
       var data;
       if (event.containsKey('onResume')) {
         data = event['onResume'];
       } else if (event.containsKey('onSelectLocalNotification')) {
         data = event['onSelectLocalNotification'];
-      } else if (event['onMessage']) {
+      } else if (event.containsKey('onMessage')) {
         data = event['onMessage'];
-      } else if (event['onLaunch']) {
+      } else if (event.containsKey('onLaunch')) {
         data = event['onLaunch'];
       }
 

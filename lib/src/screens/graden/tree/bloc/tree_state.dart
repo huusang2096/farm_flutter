@@ -15,7 +15,7 @@ abstract class TreeStateData with _$TreeStateData {
       bool isLoading,
       int idSelect,
       @nullable int idGarden,
-      @nullable List<TreeList> listTree}) = Data;
+      @nullable List<TreeListGarden> listTree}) = Data;
 }
 
 // Union

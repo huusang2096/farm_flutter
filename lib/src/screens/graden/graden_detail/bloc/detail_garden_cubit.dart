@@ -30,7 +30,7 @@ class GardenDetailCubit extends BaseCubit<GardenDetailState> {
       GardenDetailResponse response =
           await dataRepository.getGardenDetailResponse(id);
       if (response != null) {
-        List<TreeList> treeLists = [];
+        List<TreeListGarden> treeLists = [];
         treeLists.add(null);
         final list = response.gardenDetail.treeList ?? [];
         treeLists.addAll(list);
